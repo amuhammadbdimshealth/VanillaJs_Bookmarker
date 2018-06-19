@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Bookmarker</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- sidebar-btn -->
+            <div type="button" id="sidebar-btn" class="navbar-brand">&#9776;</div>
+
+            <!-- main navbar -->
+            <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Bookmarker</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">      
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Recommended</a></li>
+                    <li class="navbar-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="Search" class="form-control" id="search">
+                        </div>
+                    </li>
+                    <li class="dropdown sort-bookmark">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SORT BY<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li data-value="newest"><a href="#" >Newest</a></li>
+                            <li data-value="oldest"><a href="#" >Oldest</a></li>
+                         
+                        </ul>
+                    </li>
+                </ul>  
+                
+                <!-- dropdown -->
+            
+                <!-- save-bookmark -->
+                <form class="navbar-form navbar-right" id="save-bookmark-form">            
+                    <div class="form-group">
+                    <input name="bookmark-name" type="text" placeholder="Bookmark Name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                    <input name="bookmark-url" type="text" placeholder="Bookmark Url.com" class="form-control" required>
+                    </div>
+                    <input name="add-bookmark" type="submit" class="btn btn-success" value="Add">
+                </form>
+            </div>
+             <!-- main navbar -->
+        </div>
+    </nav>
+    <div class="sidenav">
+            <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
+            <a href="#" data-filterby="My List">My List</a>
+            <a href="#">Favourites</a>
+            <a href="#">Archive</a>
+            <a href="#">Articles</a>
+            <a href="#">Videos</a>
+            <a href="#">Images</a>
+            <a href="#">Tags</a>
+    </div>
+    <div id="main">
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="heading">
+            <h1>My List</h1> 
+            <button class="btn-primary btn-sm bulk-btn" >Bulk Edit</button>
+        </div>                       
+        <ul class="bookmarks">                    
+            <li data-index="1" class="bookmark">
+                <a data-url="https://www.google.com/" target="_blank">
+                    <div class="content">
+                        <h3>Bookmark1</h3>
+                        <img src="images/pexels-photo-1151262.jpeg" alt="Placeholder">
+                    </div>                        
+                    <div class="options">
+                        <button class="btn btn-primary btn-xs" data-option="edit-tag">Tags</button>
+                        <button class="btn btn-danger btn-xs" data-option="delete">Delete</button>                            
+                    </div> 
+                </a>                    
+            </li>
+            <li data-index="1" class="bookmark">
+                <a data-url="https://www.google.com/" target="_blank">
+                    <div class="content">
+                        <h3>Bookmark1</h3>
+                        <img src="images/pexels-photo-1151262.jpeg" alt="Placeholder">
+                    </div>                        
+                    <div class="options">
+                        <button class="btn btn-primary btn-xs" data-option="edit-tag">Tags</button>
+                        <button class="btn btn-danger btn-xs" data-option="delete">Delete</button>                            
+                    </div> 
+                </a>                    
+            </li>
+            <li>
+                <h2>Bookmark3</h2>
+                <img src="" alt="Placeholder">
+                <div class="options">Options</div>
+            </li>
+            <li>
+                <h2>Bookmark4</h2>
+                <img src="" alt="Placeholder">
+                <div class="options">Options</div>
+            </li>
+            <li>
+                <h2>Bookmark5</h2>
+                <img src="" alt="Placeholder">
+                <div class="options">Options</div>
+            </li>
+            <li>
+                <h2>Bookmark6</h2>
+                <img src="" alt="Placeholder">
+                <div class="options">Options</div>
+            </li>
+            <li>
+                <h2>Bookmark7</h2>
+                <img src="" alt="Placeholder">
+                <div class="options">Options</div>
+            </li>
+            <li>
+                <h2>Bookmark8</h2>
+                <img src="" alt="Placeholder">
+                <div class="options">Options</div>
+            </li>
+            <li>
+                <h2>Bookmark9</h2>
+                <img src="" alt="Placeholder">
+                <div class="options">Options</div>
+            </li>            
+        </ul>                 
+    </div>
+
+    <div class="overlay is-hidden edit-tags">            
+        <div class="modal-content">    
+            <button class="btn btn-danger btn-xs btn-close" onclick="toggleEditMode();">X</button>         
+            <h3 class="header">Edit tags</h3>
+            <div class="form-group">
+                <input name="tag-list" type="text" class="form-control" placeholder="tag1,tag2,...">
+                <button class="btn btn-primary btn-md btn-save" data-index="0">Save</button> 
+            </div>                
+        </div>    
+    </div>
+
+    <div class="overlay is-hidden bulk-edit">            
+        <div class="modal-content">    
+            <div class="counter"><h4>0 Items Selected</h4></div>     
+            <div class="options">
+                <button disabled class="btn btn-primary btn-md" data-option="edit-tag">Add Tag</button>
+                <button disabled class="btn btn-danger btn-md" data-option="delete">Delete</button>                            
+            </div>                           
+            <button class="btn btn-danger btn-md" onclick="toggleBulkEditMode()">X</button>   
+        </div>    
+    </div>
+    
+            
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="main.js"></script>
+    <script src="practice.js"></script>
+  </body>
+</html>
